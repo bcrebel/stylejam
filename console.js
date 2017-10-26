@@ -22,6 +22,8 @@ let handlebars = require('handlebars')
 
 let open = require('open')
 
+let Candidates = require('./candidates')
+
 // 
 /**
  * Hello, CLI.
@@ -69,13 +71,13 @@ if(!fs.existsSync(file)) {
 
 let ast = parse(fs.readFileSync(file, 'utf-8'));
 
-let $ = createQueryWrapper(ast)
+let stuff = new Candidates(ast)
 
-let mapVars = $().maps()
+let mapVars = stuff.maps()
 
-let colorVars = $().colorVars()
+let colorVars = stuff.colors()
 
-let borderVars = $().borders()
+let borderVars = stuff.borders()
 
 let final = {}
 
@@ -144,8 +146,11 @@ fs.readFile(path.join(__dirname, 'demos/styles.scss'), 'utf8', (err, contents) =
         }
 
         let cssString = result.css.toString()
+
         let mapData = test(cssString, mapVars)
+
         let colorData = test(cssString, colorVars)
+        
         let borderData = test(cssString, borderVars)
 
         _.forIn(colorData, (val, key) => { // TO DO: Separate border classes from color classes
