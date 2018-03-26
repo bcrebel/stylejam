@@ -36,7 +36,7 @@ let file = ''
 if(program.hdm) {
 		file = path.resolve(`${program.args[0]}/media-platform/fre-hdm/sites/${program.args[1]}/assets/scss/_variables.scss`)
 } else if(program.edit) {
-		file = path.resolve(`${program.args[0]}/media-platform/edit/assets/scss/_constants.scss`) 
+		file = path.resolve(`${program.args[0]}/media-platform/edit/assets/scss/includes/_constants.scss`) 
 } else if(program.demo) {
 		file = path.resolve(path.join(__dirname, 'demos/sample.scss'));
 } else {
