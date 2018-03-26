@@ -28,9 +28,7 @@ program
 	.parse(process.argv);
 
 
-/**
- * Read input.
- */
+
 let file = ''
 
 if(program.hdm) {
@@ -162,9 +160,7 @@ fs.readFile(path.join(__dirname, 'demos/styles.scss'), 'utf8', (err, contents) =
 	})
 })
 
-/**
- * Parse into an AST!
- */
+
 if(program.bench) {
 		console.time('stylejam');
 }

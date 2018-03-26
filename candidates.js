@@ -39,7 +39,7 @@ module.exports = class Candidates {
 
 		let current = []
 		
-		let obj = _.stubObject()
+		let obj = {}
 
 		while (!_.every(firstarray, _.isEmpty)) {
 			current = parentMap(firstarray)
@@ -108,7 +108,7 @@ module.exports = class Candidates {
 	}
 
 	colors() {
-		let obj = Object.create(null)
+		let obj = {}
 
 		let colors = $('stylesheet')
 			.children('declaration')

@@ -8,7 +8,11 @@
 ## Example:
 <img src="https://raw.githubusercontent.com/bcrebel/stylejam/master/demos/new-sample-2.png">
 
+
+
 ----------
+
+
 
 <img src="https://raw.githubusercontent.com/bcrebel/stylejam/master/demos/new-sample.png">
 
