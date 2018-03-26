@@ -1,6 +1,6 @@
 {
   "name": "stylejam",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "description": "Basic Sass styleguides effortlessly",
   "main": "",
   "bin": "console.js",
@@ -16,7 +16,14 @@
   "bugs": {
     "url": "https://github.com/bcrebel/stylejam/issues"
   },
-  "keywords": [ "sass", "scss", "css", "styleguide", "styleguide-generator", "automated" ],
+  "keywords": [
+    "sass",
+    "scss",
+    "css",
+    "styleguide",
+    "styleguide-generator",
+    "automated"
+  ],
   "homepage": "https://github.com/bcrebel/stylejam#readme",
   "dependencies": {
     "commander": "^2.11.0",
