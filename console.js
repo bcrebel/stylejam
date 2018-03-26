@@ -92,7 +92,7 @@ if(program.hdm) {
 			path.resolve(`${program.args[0]}/media-platform/mp-bower-assets/scss/_system.scss`),
 			path.resolve(`${program.args[0]}/media-platform/mp-bower-assets/scss/_animations.scss`),
 			path.resolve(`${program.args[0]}/media-platform/mp-bower-assets/scss/_breakpoint-events.scss`),
-			path.resolve(`${program.args[0]}/media-platform/edit/assets/scss/_constants.scss`)   
+			path.resolve(`${program.args[0]}/media-platform/edit/assets/scss/includes/_constants.scss`)   
 		]
 
 	} else if(program.demo) {
