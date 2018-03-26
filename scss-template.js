@@ -1,9 +1,7 @@
 'use strict'
 
 let fs = require('fs')
-
 let path = require('path')
-
 let _ = require('lodash')
 
 module.exports = (mapVars, colorVars, borderVars, deps) => {
@@ -24,18 +22,17 @@ module.exports = (mapVars, colorVars, borderVars, deps) => {
 		@function get-content($inputs...) {
 			@if(length($inputs) == 1) {
 				@return quote(inspect(nth($inputs, 1)))
-  		} @else {
-  			@return ''
-  		}
+			} @else {
+				@return ''
+			}
 		}	
 
 		@function color-test($inputs...) {
-		  @if length($inputs) == 1 and type-of(nth($inputs, 1)) == color {
-		    @return true;
-		  }
-		  @return false;
+			@if length($inputs) == 1 and type-of(nth($inputs, 1)) == color {
+				@return true;
+			}
+			@return false;
 		}
-
 		`
 		for (let value in mapVars) {
 			scssString +=
@@ -45,13 +42,13 @@ module.exports = (mapVars, colorVars, borderVars, deps) => {
 			${value} {
 
 				.stylejam-tile {
-	  			background-color: ${mapVars[value]};
-	  		}
+					background-color: ${mapVars[value]};
+				}
 
-	  		.value:before {
-	  			content: get-content(${mapVars[value]});
-	  		}
-	  	}
+				.value:before {
+					content: get-content(${mapVars[value]});
+				}
+			}
 		}
 		`
 		}
@@ -62,19 +59,21 @@ module.exports = (mapVars, colorVars, borderVars, deps) => {
 	let colorRules = () => {
 		
 		for (let value in colorVars) {
+			
 			scssString +=
+			
 			`
 			@if (color-test(${colorVars[value]})) {
 				${value} {
 
 					.stylejam-tile {
-			  		background-color: ${colorVars[value]};
-			  	}
+						background-color: ${colorVars[value]};
+					}
 
-			  	.value:before {
-			  		content: get-content(${colorVars[value]});
-			  	}
-			  }
+					.value:before {
+						content: get-content(${colorVars[value]});
+					}
+				}
 			}
 
 			`
@@ -86,21 +85,21 @@ module.exports = (mapVars, colorVars, borderVars, deps) => {
 	let borderRules = () => {
 		scssString += 
 		`@function borderwidth($input) {
-		  @each $part in $input {
-		    @if type-of($part) == number {
-		      @return true;
-		    }
-		  }
-		  @return false;
+			@each $part in $input {
+				@if type-of($part) == number {
+					@return true;
+				}
+			}
+			@return false;
 		}
 
 		@function bordercolor($input) {
-		  @each $part in $input {
-		    @if type-of($part) == color {
-		      @return true;
-		    }
-		  }
-		  @return false;
+			@each $part in $input {
+				@if type-of($part) == color {
+					@return true;
+				}
+			}
+			@return false;
 		}
 
 		`
@@ -109,24 +108,23 @@ module.exports = (mapVars, colorVars, borderVars, deps) => {
 			
 			scssString +=
 			`@if bordercolor(${borderVars[value]}) and borderwidth(${borderVars[value]}) {
-			  ${value} {
+				${value} {
 
-			  	&.stylejam-tile-container {
-			  		border: ${borderVars[value]};
-			  	}
+					&.stylejam-tile-container {
+						border: ${borderVars[value]};
+					}
 
-			  	.value:before {
-			  		content: get-content(${borderVars[value]});
-			  	}
-			  }
+					.value:before {
+						content: get-content(${borderVars[value]});
+					}
+				}
 			}
-
 			`
 		}
 
 		fs.writeFile(path.join(__dirname, 'demos/styles.scss'), scssString, function(err) {
 			if(err) {
-			    return console.log(err);
+				return console.log(err);
 			}
 		}); 	
 	}

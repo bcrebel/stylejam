@@ -58,26 +58,19 @@
   <script src="js/clipboard.min.js"></script>
   <script>
 		// Trigger clipboard animation
-		function clickBoardAnim(that) {
+		function clickBoardAnim(el) {
 			function pauseAnim() {
-  			copy.classList.remove("fade-in")
-  			console.log('2')
+  			copy.classList.remove("fade-in");
   		}
-  		var copyClass = that.classList[1];
-  		var copy = document.querySelector("." + copyClass + ".copied")
+  		var copyClass = el.classList[1];
+  		var copy = document.querySelector("." + copyClass + ".copied");
 
   		copy.classList.add("fade-in");
   		copy.addEventListener("webkitAnimationEnd", pauseAnim);
-
-  		console.log('1')
-
-
 		}
 
   	var attr = '';
-
   	var nodelist = document.querySelectorAll('.value');
-
 		var values = Array.from(nodelist);
 
   	values.forEach(function(value, idx) {
@@ -87,12 +80,9 @@
   		).getPropertyValue('content');
 
 			document.createAttribute('data-clipboard-text').value = attr;
-
   		values[idx].setAttribute('data-clipboard-text', attr.replace(/"/g,""));
-
   	});
 
   	new Clipboard('.value');
-  	
   </script>
 </html>
