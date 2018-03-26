@@ -43,9 +43,12 @@ module.exports = (mapVars, colorVars, borderVars, deps) => {
 		`
 		@if (color-test(${mapVars[value]})) {
 			${value} {
-	  		background-color: ${mapVars[value]};
 
-	  		button:before {
+				.stylejam-tile {
+	  			background-color: ${mapVars[value]};
+	  		}
+
+	  		.value:before {
 	  			content: get-content(${mapVars[value]});
 	  		}
 	  	}
@@ -63,9 +66,12 @@ module.exports = (mapVars, colorVars, borderVars, deps) => {
 			`
 			@if (color-test(${colorVars[value]})) {
 				${value} {
-			  	background-color: ${colorVars[value]};
 
-			  	button:before {
+					.stylejam-tile {
+			  		background-color: ${colorVars[value]};
+			  	}
+
+			  	.value:before {
 			  		content: get-content(${colorVars[value]});
 			  	}
 			  }
@@ -104,9 +110,12 @@ module.exports = (mapVars, colorVars, borderVars, deps) => {
 			scssString +=
 			`@if bordercolor(${borderVars[value]}) and borderwidth(${borderVars[value]}) {
 			  ${value} {
-			  	border: ${borderVars[value]};
 
-			  	button:before {
+			  	&.stylejam-tile-container {
+			  		border: ${borderVars[value]};
+			  	}
+
+			  	.value:before {
 			  		content: get-content(${borderVars[value]});
 			  	}
 			  }

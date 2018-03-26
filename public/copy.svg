@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Custom-Preset" transform="translate(-60.000000, -440.000000)" fill="#000000">
+            <path d="M100,460 L117,460 C118.656854,460 120,461.343146 120,463 L120,497 C120,498.656854 118.656854,500 117,500 L83,500 C81.3431458,500 80,498.656854 80,497 L80,480 L63,480 C61.3431458,480 60,478.656854 60,477 L60,443 C60,441.343146 61.3431458,440 63,440 L97,440 C98.6568542,440 100,441.343146 100,443 L100,460 Z M97.5,460 L97.5,442.5 L62.5,442.5 L62.5,477.5 L80,477.5 L80,463 C80,461.343146 81.3431458,460 83,460 L97.5,460 Z M82.5,462.5 L82.5,497.5 L117.5,497.5 L117.5,462.5 L82.5,462.5 Z" id="copy"></path>
+        </g>
+    </g>
+</svg>

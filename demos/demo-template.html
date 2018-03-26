@@ -5,70 +5,94 @@
     <link rel="stylesheet" type="text/css" href="css/stylejam.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+
     <title>stylejam</title>
   </head>
   <body>
-  	<h4>Click to copy values to clipboard</h4>
-  	<section class="maps">
-  		<h1>Mapped Colors</h1>
-  		<div class="stylejam-section-container">
-  			{{#each maps}}
-  				<div class="stylejam-tile-container">
-  					<div class="map stylejam-tile" id="{{@key}}">
-  						<button class="btn"></button>
-  					</div>
-  					<p class="stylejam-variable-name">{{append @key}}</p>
-  				</div>
-  			{{/each}}
-  		</div>
-  	</section>
-  	<section class="colors">
-  	<h1>Colors</h1>
-  		<div class="stylejam-section-container">
-	  		{{#each colors}}
-	  			<div class="stylejam-tile-container">
-	  				<div class="color stylejam-tile" id="{{@key}}">
-	  					<button class="btn"></button>
+  	<div id="overlay">
+	  	<section class="maps">
+	  		<h1>Mapped Colors</h1>
+	  		<div class="stylejam-section-container">
+	  			{{#each maps}}
+	  				<div class="stylejam-tile-container" id ="{{@key}}">
+	  					<div class="map stylejam-tile">
+	  						<p class="copied {{@key}}">COPIED</p>
+	  					</div>
+	  					<div class="stylejam-variable-container">
+	  						<p class="stylejam-variable-name">{{append @key}}</p>
+	  						<p class="value {{@key}}" onclick="clickBoardAnim(this)"></p>
+	  					</div>
 	  				</div>
-	  				<p class="stylejam-variable-name">{{prepend @key}}</p>
-	  			</div>
+	  			{{/each}}
+	  		</div>
+	  	</section>
+	  	<section class="colors">
+	  	<h1>Colors</h1>
+	  		<div class="stylejam-section-container">
+		  		{{#each colors}}
+		  			<div class="stylejam-tile-container" id="{{@key}}">
+		  				<div class="color stylejam-tile">
+								<p class="copied {{@key}}">COPIED</p>
+		  				</div>
+		  				<p class="stylejam-variable-name">{{prepend @key}}</p>
+		  				<p class="value {{@key}}" onclick="clickBoardAnim(this)"></p>
+		  			</div>
+		  		{{/each}}
+	  		</div>
+	  	</section>
+	  	<section class="borders">
+	  	<h1>Borders</h1>
+	  	<div class="stylejam-section-container">
+		  	{{#each borders}}
+					<div class="stylejam-tile-container" id="{{@key}}">
+						<p class="copied {{@key}}">COPIED</p>
+						<p class="stylejam-variable-name">{{prepend @key}}</p>
+						<p class="value {{@key}}" onclick="clickBoardAnim(this)"></p>
+					</div>
 	  		{{/each}}
-  		</div>
-  	</section>
-  	<section class="borders">
-  	<h1>Borders</h1>
-  	<div class="stylejam-section-container">
-	  	{{#each borders}}
-				<div class="stylejam-tile-container">
-	  				<div class="border stylejam-tile" id="{{@key}}">
-	  					<button class="btn"></button>
-	  				</div>
-					<p class="stylejam-variable-name">{{prepend @key}}</p>
-				</div>
-  		{{/each}}
-  		</div>
-  	</section>
+	  		</div>
+	  	</section>
+	  </div>
   </body>
   <script src="js/clipboard.min.js"></script>
   <script>
+		// Trigger clipboard animation
+		function clickBoardAnim(that) {
+			function pauseAnim() {
+  			copy.classList.remove("fade-in")
+  			console.log('2')
+  		}
+  		var copyClass = that.classList[1];
+  		var copy = document.querySelector("." + copyClass + ".copied")
+
+  		copy.classList.add("fade-in");
+  		copy.addEventListener("webkitAnimationEnd", pauseAnim);
+
+  		console.log('1')
+
+
+		}
+
   	var attr = '';
 
-  	var nodelist = document.querySelectorAll('.btn');
+  	var nodelist = document.querySelectorAll('.value');
 
-		var buttons = Array.from(nodelist);
+		var values = Array.from(nodelist);
 
-  	buttons.forEach(function(button, idx) {
+  	values.forEach(function(value, idx) {
 
   		attr = window.getComputedStyle(
-  		button, ':before'
+  			value, ':before'
   		).getPropertyValue('content');
 
-  		document.createAttribute('data-clipboard-text').value = attr;
+			document.createAttribute('data-clipboard-text').value = attr;
 
-  		buttons[idx].setAttribute('data-clipboard-text', attr.replace(/"/g,""))
+  		values[idx].setAttribute('data-clipboard-text', attr.replace(/"/g,""));
+
   	});
 
-  	new Clipboard('.btn');
+  	new Clipboard('.value');
   	
   </script>
 </html>
