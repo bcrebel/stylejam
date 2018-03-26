@@ -6,15 +6,17 @@
  - No need to change your Sass or add markdown/notation
 
 ## Example:
-<img src="https://raw.githubusercontent.com/bcrebel/stylejam/master/demos/sample.png">
+<img src="https://raw.githubusercontent.com/bcrebel/stylejam/master/demos/new-sample-2.png">
+
+----------
+
+<img src="https://raw.githubusercontent.com/bcrebel/stylejam/master/demos/new-sample.png">
 
 
 ## Install
 
 ```
-
 	npm install -g stylejam      
-
 ```
 
 ### To view stylejam demo file:
@@ -29,7 +31,7 @@
 
 ```
 
-	Add variable file followed by any dependency files in order of import      
+	Add variable file followed by any dependency files in import order    
 
 	stylejam <path/to/variable-file.scss> [<path/to/dependency.scss>]     
 
